@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/carte.css">
+    <title>YCD Bank | Cartes</title>
+    <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div class="flex min-h-screen">
+
+        <aside id="sidebar"
+            class="bg-gray-800 text-white w-64 flex flex-col p-5 fixed md:relative min-h-full h-full** transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
+
+            <a href="/pages/home.html" class="flex items-center justify-center">
+                <img src="/images/logoBank.png" alt="YCD Bank logo" class="h-32 w-auto">
+            </a>
+
+            <ul class="flex-1 space-y-6">
+                <li>
+                    <a href="/pages/home.html"
+                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+                        <img src="/images/accueil.png" alt="iconAccueil" class="w-5 h-5">
+                        <span>Accueil</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pages/virement.html"
+                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+                        <img src="/images/virement.png" alt="iconVirement" class="w-5 h-5">
+                        <span>Virement</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pages/payment.html"
+                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+                        <img src="/images/payment.png" alt="iconPayment" class="w-5 h-5">
+                        <span>Payments</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pages/convert.html"
+                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+                        <img src="/images/convert.png" alt="iconConvert" class="w-5 h-5">
+                        <span>Currency Converter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pages/pdf.html"
+                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+                        <img src="/images/rib.png" alt="iconConvert" class="w-5 h-5">
+                        <span>Export RIB</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pages/beneficiere.html"
+                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+                        <img src="/images/convert.png" alt="iconConvert" class="w-5 h-5">
+                        <span>Bénéficiaires</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/pages/carte.html"
+                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+                        <img src="/images/carte.png" alt="iconCarte" class="w-5 h-5">
+                        <span>Cartes</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="mt-auto relative">
+                <div class="flex items-center gap-3">
+                    <img src="/images/people.png" alt="User" class="w-10 h-10 bg-white rounded-full border-2 ">
+                    <div class="relative w-full">
+                        <button id="dropdownBtn"
+                            class="w-full text-white font-medium flex items-center gap-1 focus:outline-none">
+                            <p id="nomDash"></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mt-[2px]" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5 l7 7-7 7" />
+                            </svg>
+                        </button>
+
+                        <ul id="dropdownMenu"
+                            class="absolute left-0 bottom-full mb-2 w-44 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+                            <li><a href="/pages/Profile.html"
+                                    class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+                            </li>
+                            <li><a href="/pages/parameter.html"
+                                    class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Parameter</a>
+                            </li>
+                            <li>
+                                <hr class="border-gray-200 dark:border-gray-700 my-1">
+                            </li>
+                            <li><a href="/index.html"
+                                    class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Deconnexion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <div class="flex-1 flex flex-col overflow-hidden">
+
+
+            <header class="bg-white border-b border-gray-200 shadow p-4 flex justify-between items-center z-40">
+
+                <button id="sidebarToggle" class="md:hidden focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+
+                <h1 class="text-xl font-semibold text-black">Cartes</h1>
+
+
+                <div class="relative">
+                    <button id="notifBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="absolute top-0 right-0 inline-block w-2 h-2 bg-red-600 rounded-full"></span>
+                    </button>
+
+                    <div id="notifMenu"
+                        class="absolute right-0 mt-2 w-72 md:w-96 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+                        <div
+                            class="p-3 font-semibold border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200">
+                            Notifications
+                        </div>
+                        <ul class="space-y-2 p-2">
+                            <li class="bg-gray-100  p-3 rounded">
+                                <a href="#">Virement recu de Youcode d'un montant de 1000 Dh</a>
+                            </li>
+                            <li class="bg-gray-100 p-3 rounded">
+                                <a href="#">Virement recu de Youcode d'un montant de 1000 Dh</a>
+                            </li>
+                            <li class="bg-gray-100 p-3 rounded">
+                                <a href="#">Virement recu de Youcode d'un montant de 1000 Dh</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <main class="p-6 flex-1 overflow-y-auto">
+
+                <h1 class="text-2xl font-semibold">Bonjour Mr: Lahmar Zakariae</h1>
+
+                <div class="relative w-full overflow-hidden" role="region" aria-label="Liste des cartes bancaires">
+
+                    <!-- Slider container -->
+                    <div id="cardSlider"
+                        class="flex gap-10 w-full overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide touch-pan-x md:justify-center py-4 focus:outline-none"
+                        tabindex="0" aria-live="polite">
+
+                        <!-- CARD 1 -->
+                        <div class="min-w-[90vw] sm:min-w-[420px] md:min-w-[480px] lg:min-w-[500px] flex-shrink-0 snap-center grid gap-6 px-2 sm:px-4 py-2 md:py-0 transition-transform duration-500 focus-visible:ring-4 focus-visible:ring-blue-500 rounded-2xl"
+                            role="group" aria-label="Carte Compte Chèque">
+
+                            <!-- Carte principale -->
+                            <div
+                                class="h-[220px] bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-xl text-white p-5 relative overflow-hidden flex flex-col justify-between">
+                                <div class="flex justify-between items-start">
+                                    <p class="text-lg font-light">Compte Chèque</p>
+                                    <img class="w-20" src="/images/logoBank.png" alt="Logo de la banque" loading="lazy">
+                                </div>
+
+                                <p class="text-lg tracking-wide break-words">4643 6844 9845 4749</p>
+
+                                <div class="flex justify-between items-center mt-4">
+                                    <div class="flex items-center gap-2">
+                                        <p class="text-sm font-light">Expire fin</p>
+                                        <p class="text-sm tracking-wide">03/27</p>
+                                    </div>
+                                    <p class="text-sm tracking-wide">Mr : Lahmar Zakariae</p>
+                                </div>
+                            </div>
+
+                            <!-- Détails + actions -->
+                            <div
+                                class="grid justify-center items-center p-4 md:p-6 gap-4 border border-gray-300 rounded-xl bg-white">
+                                <div class="flex flex-wrap gap-2 text-gray-900 justify-between">
+                                    <p>Numéro de compte :</p>
+                                    <span class="font-medium">4643642343453</span>
+                                </div>
+
+                                <div class="flex flex-wrap gap-2 text-gray-900 justify-between">
+                                    <p>Statut de carte :</p>
+                                    <p id="statutCheque"></p>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-3 sm:gap-4 mt-3">
+                                    <button data-modal-target="default-modal1" data-modal-toggle="default-modal1"
+                                        class="border-2 border-gray-400 rounded-xl h-20 text-sm sm:text-base focus:ring-4 focus:ring-blue-400 hover:bg-gray-100 transition">
+                                        Informations
+                                    </button>
+                                    <button data-modal-target="default-modal-dotation2" data-modal-toggle="default-modal-dotation2"
+                                        class="border-2 border-gray-400 rounded-xl h-20 text-sm sm:text-base focus:ring-4 focus:ring-blue-400 hover:bg-gray-100 transition">
+                                        Demander dotation
+                                    </button>
+                                    <button data-modal-target="default-modal-bloque"
+                                        data-modal-toggle="default-modal-bloque"
+                                        class="border-2 border-gray-400 rounded-xl h-20 text-sm sm:text-base focus:ring-4 focus:ring-red-400 hover:bg-gray-100 transition">
+                                        Bloquer
+                                    </button>
+                                    <button data-modal-target="default-modal-code"
+                                        data-modal-toggle="default-modal-code"
+                                        class="border-2 border-gray-400 rounded-xl h-20 text-sm sm:text-base focus:ring-4 focus:ring-yellow-400 hover:bg-gray-100 transition">
+                                        Code carte
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARD 2 -->
+                        <div class="min-w-[90vw] sm:min-w-[420px] md:min-w-[480px] lg:min-w-[500px] flex-shrink-0 snap-center grid gap-6 px-2 sm:px-4 py-2 md:py-0 transition-transform duration-500 focus-visible:ring-4 focus-visible:ring-blue-500 rounded-2xl"
+                            role="group" aria-label="Carte Compte sur Carnet">
+
+                            <div
+                                class="h-[220px] bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-xl text-white p-5 relative overflow-hidden flex flex-col justify-between">
+                                <div class="flex justify-between items-start">
+                                    <p class="text-lg font-light">Compte sur Carnet</p>
+                                    <img class="w-20" src="/images/logoBank.png" alt="Logo de la banque" loading="lazy">
+                                </div>
+
+                                <p class="text-lg tracking-wide break-words">9472 7482 6836 6591</p>
+
+                                <div class="flex justify-between items-center mt-4">
+                                    <div class="flex items-center gap-2">
+                                        <p class="text-sm font-light">Expire fin</p>
+                                        <p class="text-sm tracking-wide">03/27</p>
+                                    </div>
+                                    <p class="text-sm tracking-wide">Mr : Lahmar Zakariae</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="grid justify-center items-center p-4 md:p-6 gap-4 border border-gray-300 rounded-xl bg-white">
+                                <div class="flex flex-wrap gap-2 text-gray-900 justify-between">
+                                    <p>Numéro de compte :</p>
+                                    <span class="font-medium">787684684684</span>
+                                </div>
+
+                                <div class="flex flex-wrap gap-2 text-gray-900 justify-between">
+                                    <p>Statut de carte :</p>
+                                    <p id="statutCarnet"></p>
+                                    
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-3 sm:gap-4 mt-3">
+                                    <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                        class="border-2 border-gray-400 rounded-xl h-20 text-sm sm:text-base focus:ring-4 focus:ring-blue-400 hover:bg-gray-100 transition">
+                                        Informations
+                                    </button>
+                                    <button data-modal-target="default-modal-dotation"
+                                        data-modal-toggle="default-modal-dotation"
+                                        class="border-2 border-gray-400 rounded-xl h-20 text-sm sm:text-base focus:ring-4 focus:ring-blue-400 hover:bg-gray-100 transition">
+                                        Demander dotation
+                                    </button>
+                                    <button data-modal-target="default-modal-bloque2"
+                                        data-modal-toggle="default-modal-bloque2"
+                                        class="border-2 border-gray-400 rounded-xl h-20 text-sm sm:text-base focus:ring-4 focus:ring-red-400 hover:bg-gray-100 transition">
+                                        Bloquer
+                                    </button>
+                                    <button data-modal-target="default-modal-code2"
+                                        data-modal-toggle="default-modal-code2"
+                                        class="border-2 border-gray-400 rounded-xl h-20 text-sm sm:text-base focus:ring-4 focus:ring-yellow-400 hover:bg-gray-100 transition">
+                                        Code carte
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--modal information1-->
+                <div id="default-modal1" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+
+                        <div class="relative bg-white rounded-lg shadow-sm ">
+
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
+                                <h2>Informations carte</h2>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    data-modal-hide="default-modal1">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-4 md:p-5 space-y-4">
+
+
+                                <div class="relative overflow-x-auto">
+                                    <table
+                                        class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        <thead class="text-xs text-white uppercase bg-gray-50 dark:bg-gray-700">
+
+                                        </thead>
+                                        <tbody>
+                                            <tr class="bg-white dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Numero de compte
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    4643642343453
+                                                </td>
+
+                                            </tr>
+                                            <tr class="bg-white dark:bg-gray-800  ">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Statut de carte
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    Active
+                                                </td>
+                                            </tr>
+                                            <tr class="bg-white dark:bg-gray-800">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Date Expiration
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    31-03-2027
+                                                </td>
+                                            </tr>
+                                            <tr class="bg-white dark:bg-gray-800">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Retrait au maroc
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    8000,00 MAD
+                                                </td>
+                                            </tr>
+                                            <tr class="bg-white dark:bg-gray-800">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Paiement au maroc
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    70000,00 MAD
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- modal information2-->
+                <div id="default-modal" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+
+                        <div class="relative bg-white rounded-lg shadow-sm ">
+
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
+                                <h2>Informations carte</h2>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    data-modal-hide="default-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-4 md:p-5 space-y-4">
+
+
+                                <div class="relative overflow-x-auto">
+                                    <table
+                                        class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        <thead class="text-xs text-white uppercase bg-gray-50 dark:bg-gray-700">
+
+                                        </thead>
+                                        <tbody>
+                                            <tr class="bg-white dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Numero de compte
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    787684684684
+                                                </td>
+
+                                            </tr>
+                                            <tr class="bg-white dark:bg-gray-800  ">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Statut de carte
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    Active
+                                                </td>
+                                            </tr>
+                                            <tr class="bg-white dark:bg-gray-800">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Date Expiration
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    31-03-2027
+                                                </td>
+                                            </tr>
+                                            <tr class="bg-white dark:bg-gray-800">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Retrait au maroc
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    7000,00 MAD
+                                                </td>
+                                            </tr>
+                                            <tr class="bg-white dark:bg-gray-800">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    Paiement au maroc
+
+                                                </th>
+                                                <td class="px-6 py-4">
+                                                    50000,00 MAD
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--modal dotation-->
+                <div id="default-modal-dotation" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+
+                        <div class="relative bg-white rounded-lg shadow-sm ">
+
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
+                                <h2>Demande de Dotation</h2>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    data-modal-hide="default-modal-dotation">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class=" flex flex-col md:p-5 space-y-6 justify-center items-center">
+
+                                <div>
+                                    <h3>Le solde disponible est 100000,00 DH</h3>
+                                </div>
+                                <div class="verflow-x-auto ">
+                                    <input id="montantInput" type="number" inputmode="decimal"
+                                        placeholder="Entrez le montant" required class="w-full sm:w-auto md:w-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                        focus:ring-blue-500 focus:border-blue-500 block px-4 py-2.5 shadow-sm transition duration-150 ease-in-out
+                                        placeholder:text-gray-400" />
+                                </div>
+                                <button type="button" class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700
+                                        focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md
+                                        focus:outline-none transition duration-200 ease-in-out" aria-label="Valider le montant">
+                                        Valider
+                                </button>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--modal dotation2-->
+                <div id="default-modal-dotation2" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+
+                        <div class="relative bg-white rounded-lg shadow-sm ">
+
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
+                                <h2>Demande de Dotation</h2>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    data-modal-hide="default-modal-dotation2">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class=" flex flex-col md:p-5 space-y-6 justify-center items-center">
+
+                                <div>
+                                    <h3>Le solde disponible est 100000,00 DH</h3>
+                                </div>
+                                <div class="verflow-x-auto ">
+                                    <input id="montantInput" type="number" inputmode="decimal"
+                                        placeholder="Entrez le montant" required class="w-full sm:w-auto md:w-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                        focus:ring-blue-500 focus:border-blue-500 block px-4 py-2.5 shadow-sm transition duration-150 ease-in-out
+                                        placeholder:text-gray-400" />
+                                </div>
+                                <button type="button" class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700
+                                        focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md
+                                        focus:outline-none transition duration-200 ease-in-out" aria-label="Valider le montant">
+                                        Valider
+                                </button>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--modal bloquer-->
+                <div id="default-modal-bloque" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+
+                        <div class="relative bg-white rounded-lg shadow-sm ">
+
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
+                                <h2>Bloquer la carte Cheque</h2>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    data-modal-hide="default-modal-bloque">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class=" flex md:p-5 gap-3 justify-center items-center">
+
+                                <button id="bloquerCarteCheque" type="button" class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700
+                                        focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md
+                                        focus:outline-none transition duration-200 ease-in-out" >
+                                        Bloquer
+                                </button>
+                                <button id="debloquerCarteCheque" type="button" class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700
+                                        focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md
+                                        focus:outline-none transition duration-200 ease-in-out" >
+                                        Debloquer
+                                </button>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--modal bloquer2-->
+                <div id="default-modal-bloque2" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+
+                        <div class="relative bg-white rounded-lg shadow-sm ">
+
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
+                                <h2>Bloquer la carte Carnet</h2>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    data-modal-hide="default-modal-bloque2">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class=" flex gap-3 md:p-5 justify-center items-center">
+
+                                <button id="bloquerCarteCarnet" type="button" class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700
+                                        focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md
+                                        focus:outline-none transition duration-200 ease-in-out" >
+                                        Bloquer
+                                </button>
+                                <button id="debloquerCarteCarnet" type="button" class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700
+                                        focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md
+                                        focus:outline-none transition duration-200 ease-in-out" >
+                                        Debloquer
+                                </button>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--modal Code carte cheque-->
+                <div id="default-modal-code" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+
+                        <div class="relative bg-white rounded-lg shadow-sm ">
+
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
+                                <h2>Recalcul code carte cheque</h2>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    data-modal-hide="default-modal-code">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class=" flex flex-col md:p-5 space-y-6 justify-center items-center">
+                                <div class="w-full sm:w-auto text-black">
+                                    <p>Votre nouveau code carte sera envoye par SMS sur votre telephone mobile. </p>
+                                    <p>Vous devez le changer sur un GAB YCD Bank </p>
+                                </div>
+                                <button type="button" class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700
+                                        focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md
+                                        focus:outline-none transition duration-200 ease-in-out">
+                                        Recalculer
+                                </button>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--modal Code carte carnet-->
+                <div id="default-modal-code2" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+
+                        <div class="relative bg-white rounded-lg shadow-sm ">
+
+                            <div
+                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t border-gray-200">
+                                <h2>Recalcul code carte carnet</h2>
+                                <button type="button"
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
+                                    data-modal-hide="default-modal-code2">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class=" flex flex-col md:p-5 space-y-6 justify-center items-center">
+                                <div class="w-full sm:w-auto text-black">
+                                    <p>Votre nouveau code carte sera envoye par SMS sur votre telephone mobile. </p>
+                                    <p>Vous devez le changer sur un GAB YCD Bank </p>
+                                </div>
+                                <button type="button" class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700
+                                        focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md
+                                        focus:outline-none transition duration-200 ease-in-out" aria-label="Valider le montant">
+                                        Recalculer
+                                </button>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+    <script src="/js/gestionCarte.js"></script>
+    <script type="module" src="/js/main.js"></script>
+    <script src="/js/home.js"></script>
+</body>
+
+</html>

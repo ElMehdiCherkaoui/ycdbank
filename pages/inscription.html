@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Inscription</title>
+</head>
+
+<body class="bg-white text-slate-700">
+    <main class="min-h-screen flex flex-col items-center justify-center px-6 py-12">
+        <img src="/images/logo_login-page.png" alt="" class="w-32 mb-8 flex items-center flex-col" />
+        <section class="w-full max-w-2xl">
+            <div class="bg-white border border-slate-100 rounded-lg shadow-sm px-8 py-6">
+                <h1 class="text-center text-slate-900 font-semibold text-lg mb-6">
+                    Inscription
+                </h1>
+
+                <form class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <input required type="text" name="prenom" placeholder="Votre prénom" id="prenom"
+                            class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
+                        <input required type="text" name="nom" placeholder="Votre nom" id="nom"
+                            class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
+                    </div>
+
+                    <div>
+                        <input required type="email" name="email" placeholder="exemple@domaine.com" id="email"
+                            class="w-full text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <input required type="tel" name="telephone" placeholder="+212 6 12 34 56 78" id="number"
+                            class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
+                        <input required type="date" name="naissance" id="naissance"
+                            class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
+                    </div>
+
+                    <div>
+                        <input type="text" name="adresse" placeholder="Rue, ville, code postal" id="adress" 
+                            class="w-full text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <input required type="password" name="password" placeholder="Choisissez un mot de passe" id="motdepasse"
+                            class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
+                        <input required type="password" name="password_confirm" placeholder="Répétez le mot de passe" id="confirm-motdepasse"
+                            class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
+                    </div>
+
+                    <div class="flex items-start space-x-2 text-sm">
+                        <input id="terms" type="checkbox" class="mt-1 h-4 w-4" />
+                        <label>
+                            J'accepte les
+                            <a href="#" class="text-sky-700 underline">conditions générales</a>
+                        </label>
+                    </div>
+
+                    <div>
+                        <button id="confirm-btn"
+                            class="w-full bg-blue-950 text-white text-sm font-medium py-3 rounded-md hover:bg-[#010042]">
+                            Créer mon compte
+                        </button>
+                    </div>
+
+                    <div class="text-center text-xs">
+                        <div class="mb-2">
+                            Déjà un compte ?
+                            <a href="/index.html" class="text-sky-700 underline">Se connecter</a>
+                        </div>
+                        <div>
+                            Nous enverrons un code de confirmation sur votre numéro ou
+                            adresse e‑mail.
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="/js/inscription.js"></script>
+</body>
+
+</html>
