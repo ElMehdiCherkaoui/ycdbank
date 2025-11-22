@@ -164,3 +164,16 @@ validerBtnVerment.addEventListener("click", (e) => {
     montantVirement.value = "";
     montifReferenceVirement.value = "";
 });
+// ---- UPDATE USER BALANCE IN users[] LIST ----
+const users = JSON.parse(localStorage.getItem("users")) || [];
+const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+
+const index = users.findIndex(u => u.email === loggedUser.email);
+
+if (index !== -1) {
+    users[index].solde1 = loggedUser.solde1;
+    console.log(users[index].solde1);
+    users[index].solde2 = loggedUser.solde2;
+    console.log(users[index].solde2);
+    localStorage.setItem("users", JSON.stringify(users));
+}

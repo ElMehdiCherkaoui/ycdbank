@@ -32,11 +32,11 @@ validatePayment.addEventListener("click", () => {
             return;
         }
     }
-        const Reference_value = Number(Reference.value);
-        if (!Reference_value) {
-            alert("Please enter a valid amount");
-            return;
-        }
+    const Reference_value = Number(Reference.value);
+    if (!Reference_value) {
+        alert("Please enter a valid amount");
+        return;
+    }
 
     if (Reference_value > 10000) {
         alert("You can't do more than 10,000 dhs");
@@ -44,11 +44,12 @@ validatePayment.addEventListener("click", () => {
     }
 
     const select_value = select.value;
-
+    const userInside = user_inside.value;
 
     const paymentInfo = {
         Reference_value,
         select_value,
+        userInside
     };
 
 
@@ -56,7 +57,17 @@ validatePayment.addEventListener("click", () => {
     Infos.push(paymentInfo);
     localStorage.setItem("Infos", JSON.stringify(Infos));
 
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
+    const index = users.findIndex(u => u.email === loggedUser.email);
+
+    if (index !== -1) {
+        users[index].solde1 -= Reference_value;
+        loggedUser.solde1 -= Reference_value;
+        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+    }
 
     alert("Payment accepted");
     select.value = "";
@@ -109,3 +120,4 @@ submitbtn_edit.addEventListener("click", () => {
     popupEdit.classList.add("hidden");
 
 })
+

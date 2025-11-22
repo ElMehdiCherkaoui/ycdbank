@@ -5,7 +5,9 @@ const SettingsUserPasswordConfirmation = document.getElementById("SettingsUserPa
 const SettingsUserEmail = document.getElementById("SettingsUserEmail");
 const SettingSaveBtn = document.getElementById("SettingSaveBtn");
 const UsersSettings = JSON.parse(localStorage.getItem("users")) || [];
-let index = 0;
+const loggedUserSettings = JSON.parse(localStorage.getItem("loggedUser")) || [];
+
+let index = UsersSettings.findIndex(u => u.transfer_1 === loggedUserSettings.transfer_1);
 SettingUserNom.placeholder = UsersSettings[index].nom;
 SettingUserPrenom.placeholder = UsersSettings[index].prenom;
 SettingsUserEmail.placeholder = UsersSettings[index].email;
@@ -23,8 +25,10 @@ SettingSaveBtn.addEventListener("click", () => {
             alert("password has less then 8 characters");
             return;
         }
-        UsersSettings[0].motdepasse = SettingsUserPassword.value;
+        UsersSettings[index].motdepasse = SettingsUserPassword.value;
+        loggedUserSettings.motdepasse = SettingsUserPassword.value;
         localStorage.setItem("users", JSON.stringify(UsersSettings));
+        localStorage.setItem("loggedUser", JSON.stringify(loggedUserSettings));
     }
 
 
@@ -33,16 +37,22 @@ SettingSaveBtn.addEventListener("click", () => {
         return;
     }
     if (SettingUserNom.value !== "") {
-        UsersSettings[0].nom = SettingUserNom.value;
+        UsersSettings[index].nom = SettingUserNom.value;
+        loggedUserSettings.nom = SettingUserNom.value;
         localStorage.setItem("users", JSON.stringify(UsersSettings));
+        localStorage.setItem("loggedUser", JSON.stringify(loggedUserSettings));
     }
     if (SettingUserPrenom.value !== "") {
-        UsersSettings[0].prenom = SettingUserPrenom.value;
+        UsersSettings[index].prenom = SettingUserPrenom.value;
+        loggedUserSettings.prenom = SettingUserPrenom.value;
         localStorage.setItem("users", JSON.stringify(UsersSettings));
+        localStorage.setItem("loggedUser", JSON.stringify(loggedUserSettings));
     }
     if (SettingsUserEmail.value !== "") {
-        UsersSettings[0].email = SettingsUserEmail.value;
+        UsersSettings[index].email = SettingsUserEmail.value;
+        loggedUserSettings.email = SettingsUserEmail.value;
         localStorage.setItem("users", JSON.stringify(UsersSettings));
+        localStorage.setItem("loggedUser", JSON.stringify(loggedUserSettings));
     }
 
     alert("changes are saved succefuly!!");

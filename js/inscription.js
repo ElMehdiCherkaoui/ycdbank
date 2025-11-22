@@ -99,8 +99,8 @@ document.getElementById("confirm-btn").addEventListener("click", function () {
         age: calculateAge(naissance),
         adress,
         motdepasse,
-        solde1 : 10000,
-        solde2 : 10000
+        solde1: 10000,
+        solde2: 10000
     };
 
 
@@ -109,6 +109,7 @@ document.getElementById("confirm-btn").addEventListener("click", function () {
     localStorage.setItem("users", JSON.stringify(users));
 
     window.location.href = "/index.html";
-    alert("Inscription saved!");
-    
+    alert("Inscription saved! we will send you ur transaction in sms ");
+    alert("from ycdbank : \n you transaction is : " + idData.transfer);
+
 })

@@ -46,31 +46,31 @@ const listeOperation = document.getElementById("listeOperation");
 const transactions = JSON.parse(localStorage.getItem("transaction")) || [];
 
 function afficherTransactions() {
-    listeOperation.innerHTML = ""; 
+    listeOperation.innerHTML = "";
 
     transactions.forEach(v => {
-        let isInternal = 
+        let isInternal =
             (v.from === "Compte 1" && v.to === "Compte 2") ||
             (v.from === "Compte 2" && v.to === "Compte 1");
 
-        let isExternalFromCompte1 = v.from === "Compte 1" && !["Compte 1","Compte 2"].includes(v.to);
+        let isExternalFromCompte1 = v.from === "Compte 1" && !["Compte 1", "Compte 2"].includes(v.to);
 
         if (isInternal || isExternalFromCompte1) {
             const li = document.createElement("li");
             li.className = "flex justify-between w-full border border-black rounded-xl p-3 items-center flex-wrap";
 
-            
+
             let signe = "";
             let couleur = "";
-            
+
             if (v.from === "Compte 1" && v.to === "Compte 2") {
-                signe = "- ";       
+                signe = "- ";
                 couleur = "text-red-600";
             } else if (v.from === "Compte 2" && v.to === "Compte 1") {
-                signe = "+ ";      
+                signe = "+ ";
                 couleur = "text-green-600";
             } else if (isExternalFromCompte1) {
-                signe = "- ";       
+                signe = "- ";
                 couleur = "text-red-600";
             }
 
@@ -93,7 +93,7 @@ function afficherTransactionsInternes() {
 
     transactions2.forEach(v => {
         // Filtrer uniquement les transactions internes
-        const isInternal = 
+        const isInternal =
             (v.from === "Compte 1" && v.to === "Compte 2") ||
             (v.from === "Compte 2" && v.to === "Compte 1");
 
@@ -132,3 +132,22 @@ function extraireNumeroCompte(rib) {
     }
     return rib.substring(6, 22);
 }
+
+
+function checkForNewOperations() {
+    const InfosPayments = JSON.parse(localStorage.getItem("Infos")) || [];
+
+
+    InfosPayments.forEach(e => {
+        const li = document.createElement("li");
+        li.className = "flex justify-between w-full border border-black rounded-xl p-3 items-center flex-wrap";
+        li.innerHTML = `
+            <p>${e.select_value}</p>
+            <p class="text-red-600">-${e.Reference_value}</p>
+            <p class="font-bold">-${e.userInside}</p>
+        `;
+        listeOperation.appendChild(li);
+    });
+}
+
+checkForNewOperations();
