@@ -1,3 +1,4 @@
+
 const beneficiarySelect = document.getElementById("beneficiarySelect");
 
 const newBenefBtn = document.getElementById("newBenefBtn");
@@ -202,7 +203,7 @@ validerBtnVerment.addEventListener("click", (e) => {
 	const transaction = {
 		from: source.trim(),
 		to: destination.trim(),
-		montant:montant + frais,
+		montant: montant + frais,
 		frais,
 		type,
 		date: dateVirement.value,

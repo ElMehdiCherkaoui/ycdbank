@@ -94,8 +94,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
-    if (!loggedUser.transfer_1) return;
-
     const currentUser = saved.find(u => u.transfer_1 === loggedUser.transfer_1);
 
     if (!currentUser) return;

@@ -86,7 +86,6 @@ document.getElementById("confirm-btn").addEventListener("click", function () {
         return;
     }
     const idData = generateBankID();
-    const idData_2 = generateBankID2();
     const user = {
         id_1: idData.fullID,
         transfer_1: idData.transfer,
@@ -105,6 +104,8 @@ document.getElementById("confirm-btn").addEventListener("click", function () {
         infosAboutPayments: [],
         transactionsVirement: [],
         RIBSVirement: [],
+        statusChèque : "Active",
+        statusCarnet : "Active"
     };
 
 
