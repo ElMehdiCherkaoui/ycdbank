@@ -1,54 +1,60 @@
 const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
 
 export function visibleMoney() {
-    const toggleBtn = document.getElementById('btnVisible');
-    const money1 = document.getElementById('money1');
-    let isHidden = true;
+	const toggleBtn = document.getElementById('btnVisible');
 
-    toggleBtn.addEventListener('click', () => {
-        isHidden = !isHidden;
-        money1.textContent = isHidden ? '****' : `${loggedUser.solde1} MAD`;
-    });
+	const money1 = document.getElementById('money1');
+
+	let isHidden = true;
+
+	toggleBtn.addEventListener('click', () => {
+		isHidden = !isHidden;
+		money1.textContent = isHidden ? '****' : `${loggedUser.solde1} MAD`;
+	});
 }
 export function visibleMoney2() {
-    const toggleBtn2 = document.getElementById('btnVisible2');
-    const money2 = document.getElementById('money2');
-    let isHidden2 = true;
+	const toggleBtn2 = document.getElementById('btnVisible2');
 
-    toggleBtn2.addEventListener('click', () => {
-        isHidden2 = !isHidden2;
-        money2.textContent = isHidden2 ? '****' : `${loggedUser.solde2} MAD`;
-    });
+	const money2 = document.getElementById('money2');
+
+	let isHidden2 = true;
+
+	toggleBtn2.addEventListener('click', () => {
+		isHidden2 = !isHidden2;
+		money2.textContent = isHidden2 ? '****' : `${loggedUser.solde2} MAD`;
+	});
 }
 
 export function afficherPlus1() {
-    const button1 = document.getElementById("afficherPlus1");
-    const virements1 = document.querySelectorAll("#virementsContainer1 .virement1");
+	const button1 = document.getElementById("afficherPlus1");
 
-    button1.addEventListener("click", () => {
-        let hiddenItems1 = Array.from(virements1).filter(v => v.classList.contains("hidden"));
-        hiddenItems1.slice(0, 4).forEach(v => v.classList.remove("hidden"));
+	const virements1 = document.querySelectorAll("#virementsContainer1 .virement1");
 
+	button1.addEventListener("click", () => {
+		let hiddenItems1 = Array.from(virements1).filter(v => v.classList.contains("hidden"));
 
-        if (Array.from(virements1).every(v => !v.classList.contains("hidden"))) {
-            button1.style.display = "none";
-        }
-    });
+		hiddenItems1.slice(0, 4).forEach(v => v.classList.remove("hidden"));
+
+		if (Array.from(virements1).every(v => !v.classList.contains("hidden"))) {
+			button1.style.display = "none";
+		}
+	});
 }
 
 export function afficherPlus2() {
-    const button2 = document.getElementById("afficherPlus2");
-    const virements2 = document.querySelectorAll("#virementsContainer2 .virement2");
+	const button2 = document.getElementById("afficherPlus2");
 
-    button2.addEventListener("click", () => {
-        let hiddenItems2 = Array.from(virements2).filter(v => v.classList.contains("hidden"));
-        hiddenItems2.slice(0, 4).forEach(v => v.classList.remove("hidden"));
+	const virements2 = document.querySelectorAll("#virementsContainer2 .virement2");
 
+	button2.addEventListener("click", () => {
+		let hiddenItems2 = Array.from(virements2).filter(v => v.classList.contains("hidden"));
 
-        if (Array.from(virements2).every(v => !v.classList.contains("hidden"))) {
-            button2.style.display = "none";
-        }
-    });
+		hiddenItems2.slice(0, 4).forEach(v => v.classList.remove("hidden"));
+
+		if (Array.from(virements2).every(v => !v.classList.contains("hidden"))) {
+			button2.style.display = "none";
+		}
+	});
 }
 
 

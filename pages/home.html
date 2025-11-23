@@ -2,271 +2,260 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
-    <title>YCD Bank | Home</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/styles/style.css" />
+	<title>YCD Bank | Home</title>
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+	<div class="flex min-h-screen">
+		<aside id="sidebar"
+			class="bg-gray-800 text-white w-64 flex flex-col p-5 fixed md:relative min-h-full h-full** transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
+			<a href="/pages/home.html" class="flex items-center justify-center">
+				<img src="/images/logoBank.png" alt="YCD Bank logo" class="h-32 w-auto" />
+			</a>
 
-    <div class="flex min-h-screen">
+			<ul class="flex-1 space-y-6">
+				<li>
+					<a href="/pages/home.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/accueil.png" alt="iconAccueil" class="w-5 h-5" />
+						<span>Accueil</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/virement.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/virement.png" alt="iconVirement" class="w-5 h-5" />
+						<span>Virement</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/payment.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/payment.png" alt="iconPayment" class="w-5 h-5" />
+						<span>Payments</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/convert.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/convert.png" alt="iconConvert" class="w-5 h-5" />
+						<span>Currency Converter</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/pdf.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/rib.png" alt="iconConvert" class="w-5 h-5" />
+						<span>Export RIB</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/beneficiere.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/convert.png" alt="iconConvert" class="w-5 h-5" />
+						<span>Bénéficiaires</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/carte.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/carte.png" alt="iconCarte" class="w-5 h-5" />
+						<span>Cartes</span>
+					</a>
+				</li>
+			</ul>
 
-        <aside id="sidebar"
-            class="bg-gray-800 text-white w-64 flex flex-col p-5 fixed md:relative min-h-full h-full** transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
+			<div class="mt-auto relative">
+				<div class="flex items-center gap-3">
+					<img src="/images/people.png" alt="User" class="w-10 h-10 bg-white rounded-full border-2" />
+					<div class="relative w-full">
+						<button id="dropdownBtn"
+							class="w-full text-white font-medium flex items-center gap-1 focus:outline-none">
+							<p id="nomDash"></p>
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mt-[2px]" fill="none"
+								viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M9 5 l7 7-7 7" />
+							</svg>
+						</button>
 
-            <a href="/pages/home.html" class="flex items-center justify-center">
-                <img src="/images/logoBank.png" alt="YCD Bank logo" class="h-32 w-auto">
-            </a>
+						<ul id="dropdownMenu"
+							class="absolute left-0 bottom-full mb-2 w-44 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+							<li>
+								<a href="/pages/Profile.html"
+									class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+							</li>
+							<li>
+								<a href="/pages/settings.html"
+									class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Parameter</a>
+							</li>
+							<li>
+								<hr class="border-gray-200 dark:border-gray-700 my-1" />
+							</li>
+							<li>
+								<a href="/index.html"
+									class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Deconnexion</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</aside>
 
-            <ul class="flex-1 space-y-6">
-                <li>
-                    <a href="/pages/home.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/accueil.png" alt="iconAccueil" class="w-5 h-5">
-                        <span>Accueil</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/virement.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/virement.png" alt="iconVirement" class="w-5 h-5">
-                        <span>Virement</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/payment.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/payment.png" alt="iconPayment" class="w-5 h-5">
-                        <span>Payments</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/convert.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/convert.png" alt="iconConvert" class="w-5 h-5">
-                        <span>Currency Converter</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/pdf.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/rib.png" alt="iconConvert" class="w-5 h-5">
-                        <span>Export RIB</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/beneficiere.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/convert.png" alt="iconConvert" class="w-5 h-5">
-                        <span>Bénéficiaires</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/carte.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/carte.png" alt="iconCarte" class="w-5 h-5">
-                        <span>Cartes</span>
-                    </a>
-                </li>
-            </ul>
+		<div class="flex-1 flex flex-col overflow-hidden">
+			<header class="bg-white border-b border-gray-200 shadow p-4 flex justify-between items-center z-40">
+				<button id="sidebarToggle" class="md:hidden focus:outline-none">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+						stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+				</button>
 
-            <div class="mt-auto relative">
-                <div class="flex items-center gap-3">
-                    <img src="/images/people.png" alt="User" class="w-10 h-10 bg-white rounded-full border-2 ">
-                    <div class="relative w-full">
-                        <button id="dropdownBtn"
-                            class="w-full text-white font-medium flex items-center gap-1 focus:outline-none">
-                            <p id="nomDash"></p>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mt-[2px]" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5 l7 7-7 7" />
-                            </svg>
-                        </button>
+				<h1 class="text-xl font-semibold text-black">Accueil</h1>
 
-                        <ul id="dropdownMenu"
-                            class="absolute left-0 bottom-full mb-2 w-44 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
-                            <li><a href="/pages/Profile.html"
-                                    class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
-                            </li>
-                            <li><a href="/pages/settings.html"
-                                    class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Parameter</a>
-                            </li>
-                            <li>
-                                <hr class="border-gray-200 dark:border-gray-700 my-1">
-                            </li>
-                            <li><a href="/index.html"
-                                    class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Deconnexion</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </aside>
+				<div class="relative">
+					<button id="notifBtn">
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+							stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+						</svg>
+						<span class="absolute top-0 right-0 inline-block w-2 h-2 bg-red-600 rounded-full"></span>
+					</button>
 
+					<div id="notifMenu"
+						class="absolute right-0 mt-2 w-72 md:w-96 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+						<div
+							class="p-3 font-semibold border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200">
+							Notifications
+						</div>
+						<ul class="space-y-2 p-2">
+							<li class="bg-gray-100 p-3 rounded">
+								<a href="#">Virement recu de Youcode d'un montant de 1000 Dh</a>
+							</li>
+							<li class="bg-gray-100 p-3 rounded">
+								<a href="#">Virement recu de Youcode d'un montant de 1000 Dh</a>
+							</li>
+							<li class="bg-gray-100 p-3 rounded">
+								<a href="#">Virement recu de Youcode d'un montant de 1000 Dh</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</header>
 
-        <div class="flex-1 flex flex-col overflow-hidden">
+			<main class="p-6 flex-1 overflow-y-auto">
+				<h1 id="nomPrenom" class="text-2xl font-semibold"></h1>
+				<div class="relative w-full overflow-hidden">
+					<div id="cardSlider"
+						class="flex gap-10 w-full overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide touch-pan-x md:justify-center py-4">
+						<div
+							class="min-w-[85vw] max-w-[85vw] sm:min-w-[400px] md:min-w-[500px] md:w-[500px] flex-shrink-0 snap-center grid gap-10 px-0 sm:px-4 md:px-0 py-0 transition-transform duration-500">
+							<div
+								class="w-full h-[220px] bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-xl text-white p-5 relative overflow-hidden">
+								<div class="flex justify-between items-start">
+									<p class="text-lg font-light">Compte Chèque</p>
+									<span class="text-lg font-semibold tracking-widest">VISA</span>
+								</div>
 
+								<div class="flex mt-6">
+									<p class="text-lg font-light">Compte n° :</p>
+									<p id="numeroCheque" class="text-lg tracking-wide ml-2"></p>
+								</div>
 
-            <header class="bg-white border-b border-gray-200 shadow p-4 flex justify-between items-center z-40">
+								<div class="mt-10 flex flex-col items-center">
+									<p id="money1" class="text-lg text-green-600 tracking-widest">
+										****
+									</p>
+									<button id="btnVisible" class="mt-1 focus:outline-none">
+										<svg xmlns="http://www.w3.org/2000/svg"
+											class="h-6 w-6 text-gray-300 hover:text-white transition" fill="none"
+											viewBox="0 0 24 24" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+												d="M15 12a3 3 0 11-6 0 3 3 0z" />
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+												d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+										</svg>
+									</button>
+								</div>
+							</div>
 
-                <button id="sidebarToggle" class="md:hidden focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+							<div class="grid p-4 md:p-6 gap-4 border border-black rounded-xl">
+								<div class="text-black font-semibold text-center">
+									<h3>Opérations</h3>
+								</div>
 
-                <h1 class="text-xl font-semibold text-black">Accueil</h1>
+								<div id="virementsContainer1" class="space-y-3">
+									<ul id="listeOperation" class="flex flex-col gap-3"></ul>
+								</div>
 
+								<div class="flex justify-center">
+									<button id="afficherPlus1" class="text-blue-600 hover:underline">
+										Afficher Plus...
+									</button>
+								</div>
+							</div>
+						</div>
 
-                <div class="relative">
-                    <button id="notifBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                        </svg>
-                        <span class="absolute top-0 right-0 inline-block w-2 h-2 bg-red-600 rounded-full"></span>
-                    </button>
+						<div
+							class="min-w-[85vw] max-w-[85vw] sm:min-w-[400px] md:min-w-[500px] md:w-[500px] flex-shrink-0 snap-center grid gap-10 px-0 sm:px-4 md:px-0 py-0 transition-transform duration-500">
+							<div
+								class="w-full h-[220px] bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-xl text-white p-5 relative overflow-hidden">
+								<div class="flex justify-between items-start">
+									<p class="text-lg font-light">Compte sur Carnet</p>
+									<span class="text-lg font-semibold tracking-widest">VISA</span>
+								</div>
 
-                    <div id="notifMenu"
-                        class="absolute right-0 mt-2 w-72 md:w-96 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
-                        <div
-                            class="p-3 font-semibold border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200">
-                            Notifications
-                        </div>
-                        <ul class="space-y-2 p-2">
-                            <li class="bg-gray-100  p-3 rounded">
-                                <a href="#">Virement recu de Youcode d'un montant de 1000 Dh</a>
-                            </li>
-                            <li class="bg-gray-100 p-3 rounded">
-                                <a href="#">Virement recu de Youcode d'un montant de 1000 Dh</a>
-                            </li>
-                            <li class="bg-gray-100 p-3 rounded">
-                                <a href="#">Virement recu de Youcode d'un montant de 1000 Dh</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </header>
+								<div class="flex mt-6">
+									<p class="text-lg font-light">Compte n° :</p>
+									<p id="numeroCarnet" class="text-lg tracking-wide ml-2"></p>
+								</div>
 
-            <main class="p-6 flex-1 overflow-y-auto">
+								<div class="mt-10 flex flex-col items-center">
+									<p id="money2" class="text-lg text-green-600 tracking-widest">
+										****
+									</p>
+									<button id="btnVisible2" class="mt-1 focus:outline-none">
+										<svg xmlns="http://www.w3.org/2000/svg"
+											class="h-6 w-6 text-gray-300 hover:text-white transition" fill="none"
+											viewBox="0 0 24 24" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+												d="M15 12a3 3 0 11-6 0 3 3 0z" />
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+												d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+										</svg>
+									</button>
+								</div>
+							</div>
 
-                <h1 id="nomPrenom" class="text-2xl font-semibold"></h1>
-                <div class="relative w-full overflow-hidden">
+							<div class="grid p-4 md:p-6 gap-4 border border-black rounded-xl">
+								<div class="text-black font-semibold text-center">
+									<h3>Opérations</h3>
+								</div>
 
-                    <div id="cardSlider"
-                        class="flex gap-10 w-full overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide touch-pan-x md:justify-center py-4">
+								<div id="virementsContainer2" class="space-y-3">
+									<ul id="listeOperation2" class="flex flex-col gap-3"></ul>
+								</div>
 
-                        <div
-                            class="min-w-[85vw] max-w-[85vw] sm:min-w-[400px] md:min-w-[500px] md:w-[500px] flex-shrink-0 snap-center grid gap-10 px-0 sm:px-4 md:px-0 py-0 transition-transform duration-500">
-
-                            <div
-                                class="w-full h-[220px] bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-xl text-white p-5 relative overflow-hidden">
-                                <div class="flex justify-between items-start">
-                                    <p class="text-lg font-light">Compte Chèque</p>
-                                    <span class="text-lg font-semibold tracking-widest">VISA</span>
-                                </div>
-
-                                <div class="flex mt-6">
-                                    <p class="text-lg font-light">Compte n° :</p>
-                                    <p id="numeroCheque" class="text-lg tracking-wide ml-2"></p>
-                                </div>
-
-                                <div class="mt-10 flex flex-col items-center">
-                                    <p id="money1" class="text-lg text-green-600 tracking-widest">****</p>
-                                    <button id="btnVisible" class="mt-1 focus:outline-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="h-6 w-6 text-gray-300 hover:text-white transition" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 12a3 3 0 11-6 0 3 3 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="grid p-4 md:p-6 gap-4 border border-black rounded-xl">
-                                <div class="text-black font-semibold text-center">
-                                    <h3>Opérations</h3>
-                                </div>
-
-                                <div id="virementsContainer1" class="space-y-3">
-                                    <ul id="listeOperation" class="flex flex-col gap-3">
-                                   
-                                    </ul>
-
-                                </div>
-
-                                <div class="flex justify-center">
-                                    <button id="afficherPlus1" class="text-blue-600 hover:underline">
-                                        Afficher Plus...
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            class="min-w-[85vw] max-w-[85vw] sm:min-w-[400px] md:min-w-[500px] md:w-[500px] flex-shrink-0 snap-center grid gap-10 px-0 sm:px-4 md:px-0 py-0 transition-transform duration-500">
-
-                            <div
-                                class="w-full h-[220px] bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-xl text-white p-5 relative overflow-hidden">
-                                <div class="flex justify-between items-start">
-                                    <p class="text-lg font-light">Compte sur Carnet</p>
-                                    <span class="text-lg font-semibold tracking-widest">VISA</span>
-                                </div>
-
-                                <div class="flex mt-6">
-                                    <p class="text-lg font-light">Compte n° :</p>
-                                    <p id="numeroCarnet" class="text-lg tracking-wide ml-2"></p>
-                                </div>
-
-                                <div class="mt-10 flex flex-col items-center">
-                                    <p id="money2" class="text-lg text-green-600 tracking-widest">****</p>
-                                    <button id="btnVisible2" class="mt-1 focus:outline-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="h-6 w-6 text-gray-300 hover:text-white transition" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 12a3 3 0 11-6 0 3 3 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="grid p-4 md:p-6 gap-4 border border-black rounded-xl">
-                                <div class="text-black font-semibold text-center">
-                                    <h3>Opérations</h3>
-                                </div>
-
-                                <div id="virementsContainer2" class="space-y-3">
-                                    <ul id="listeOperation2" class="flex flex-col gap-3">
-                                   
-                                    </ul>
-                                </div>
-
-                                <div class="flex justify-center">
-                                    <button id="afficherPlus2" class="text-blue-600 hover:underline">
-                                        Afficher Plus...
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
-    <script src="/js/home.js"></script>
-    <script type="module" src="/js/main.js"></script>
+								<div class="flex justify-center">
+									<button id="afficherPlus2" class="text-blue-600 hover:underline">
+										Afficher Plus...
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+	<script src="/js/home.js"></script>
+	<script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

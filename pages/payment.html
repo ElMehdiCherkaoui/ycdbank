@@ -2,253 +2,247 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <title>YCD Bank | Payment</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/styles/style.css" />
+	<title>YCD Bank | Payment</title>
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <div class="flex h-screen">
-        <aside id="sidebar"
-            class="bg-gray-800 text-white w-64 flex flex-col p-5 fixed md:relative min-h-full h-full** transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
+	<div class="flex h-screen">
+		<aside id="sidebar"
+			class="bg-gray-800 text-white w-64 flex flex-col p-5 fixed md:relative min-h-full h-full** transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
+			<a href="/pages/home.html" class="flex items-center justify-center">
+				<img src="/images/logoBank.png" alt="YCD Bank logo" class="h-32 w-auto" />
+			</a>
 
-            <a href="/pages/home.html" class="flex items-center justify-center">
-                <img src="/images/logoBank.png" alt="YCD Bank logo" class="h-32 w-auto">
-            </a>
+			<ul class="flex-1 space-y-6">
+				<li>
+					<a href="/pages/home.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/accueil.png" alt="iconAccueil" class="w-5 h-5" />
+						<span>Accueil</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/virement.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/virement.png" alt="iconVirement" class="w-5 h-5" />
+						<span>Virement</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/payment.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/payment.png" alt="iconPayment" class="w-5 h-5" />
+						<span>Payments</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/convert.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/convert.png" alt="iconConvert" class="w-5 h-5" />
+						<span>Currency Converter</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/exportRIB.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/rib.png" alt="iconConvert" class="w-5 h-5" />
+						<span>Export RIB</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/beneficiere.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/convert.png" alt="iconConvert" class="w-5 h-5" />
+						<span>Bénéficiaires</span>
+					</a>
+				</li>
+				<li>
+					<a href="/pages/carte.html"
+						class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
+						<img src="/images/carte.png" alt="iconCarte" class="w-5 h-5" />
+						<span>Cartes</span>
+					</a>
+				</li>
+			</ul>
 
-            <ul class="flex-1 space-y-6">
-                <li>
-                    <a href="/pages/home.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/accueil.png" alt="iconAccueil" class="w-5 h-5">
-                        <span>Accueil</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/virement.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/virement.png" alt="iconVirement" class="w-5 h-5">
-                        <span>Virement</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/payment.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/payment.png" alt="iconPayment" class="w-5 h-5">
-                        <span>Payments</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/convert.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/convert.png" alt="iconConvert" class="w-5 h-5">
-                        <span>Currency Converter</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/exportRIB.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/rib.png" alt="iconConvert" class="w-5 h-5">
-                        <span>Export RIB</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/beneficiere.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/convert.png" alt="iconConvert" class="w-5 h-5">
-                        <span>Bénéficiaires</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/pages/carte.html"
-                        class="flex items-center gap-3 p-2 rounded-lg text-gray-300 hover:text-white transition">
-                        <img src="/images/carte.png" alt="iconCarte" class="w-5 h-5">
-                        <span>Cartes</span>
-                    </a>
-                </li>
-            </ul>
+			<div class="mt-auto relative">
+				<div class="flex items-center gap-3">
+					<img src="/images/people.png" alt="User" class="w-10 h-10 bg-white rounded-full border-2" />
+					<div class="relative w-full">
+						<button id="dropdownBtn"
+							class="w-full text-white font-medium flex items-center gap-1 focus:outline-none">
+							<p id="nomDash"></p>
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mt-[2px]" fill="none"
+								viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+									d="M9 5 l7 7-7 7" />
+							</svg>
+						</button>
 
-            <div class="mt-auto relative">
-                <div class="flex items-center gap-3">
-                    <img src="/images/people.png" alt="User" class="w-10 h-10 bg-white rounded-full border-2 ">
-                    <div class="relative w-full">
-                        <button id="dropdownBtn"
-                            class="w-full text-white font-medium flex items-center gap-1 focus:outline-none">
-                            <p id="nomDash"></p>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mt-[2px]" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5 l7 7-7 7" />
-                            </svg>
-                        </button>
+						<ul id="dropdownMenu"
+							class="absolute left-0 bottom-full mb-2 w-44 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+							<li>
+								<a href="/pages/Profile.html"
+									class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
+							</li>
+							<li>
+								<a href="/pages/settings.html"
+									class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Parameter</a>
+							</li>
+							<li>
+								<hr class="border-gray-200 dark:border-gray-700 my-1" />
+							</li>
+							<li>
+								<a href="/index.html"
+									class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Deconnexion</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</aside>
 
-                        <ul id="dropdownMenu"
-                            class="absolute left-0 bottom-full mb-2 w-44 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
-                            <li><a href="/pages/Profile.html"
-                                    class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Profile</a>
-                            </li>
-                            <li><a href="/pages/settings.html"
-                                    class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Parameter</a>
-                            </li>
-                            <li>
-                                <hr class="border-gray-200 dark:border-gray-700 my-1">
-                            </li>
-                            <li><a href="/index.html"
-                                    class="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Deconnexion</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </aside>
+		<div class="flex-1 flex flex-col">
+			<header class="bg-white border-b border-gray-200 shadow p-4 flex justify-between items-center">
+				<button id="sidebarToggle" class="md:hidden focus:outline-none">
+					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+						stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h16" />
+					</svg>
+				</button>
 
-        <div class="flex-1 flex flex-col">
-            <header class="bg-white border-b border-gray-200 shadow p-4 flex justify-between items-center">
-                <button id="sidebarToggle" class="md:hidden focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+				<h1 class="text-xl font-semibold text-black">Payments</h1>
 
-                <h1 class="text-xl font-semibold text-black">Payments</h1>
+				<div class="relative">
+					<button id="notifBtn">
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+							stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+						</svg>
+						<span class="absolute top-0 right-0 inline-block w-2 h-2 bg-red-600 rounded-full"></span>
+					</button>
 
-                <div class="relative">
-                    <button id="notifBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                        </svg>
-                        <span class="absolute top-0 right-0 inline-block w-2 h-2 bg-red-600 rounded-full"></span>
-                    </button>
+					<div id="notifMenu"
+						class="absolute right-0 mt-2 w-72 md:w-96 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
+						<div
+							class="p-3 font-semibold border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200">
+							Notifications
+						</div>
+						<ul class="space-y-2 p-2">
+							<li class="bg-gray-100 p-3 rounded">
+								<p>Virement recu de Youcode d'un montant de 1000 Dh</p>
+							</li>
+							<li class="bg-gray-100 p-3 rounded">
+								<p>Virement recu de Youcode d'un montant de 1000 Dh</p>
+							</li>
+							<li class="bg-gray-100 p-3 rounded">
+								<p>Virement recu de Youcode d'un montant de 1000 Dh</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</header>
 
-                    <div id="notifMenu"
-                        class="absolute right-0 mt-2 w-72 md:w-96 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg hidden z-50">
-                        <div
-                            class="p-3 font-semibold border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200">
-                            Notifications
-                        </div>
-                        <ul class="space-y-2 p-2">
-                            <li class="bg-gray-100 p-3 rounded">
-                                <p>Virement recu de Youcode d'un montant de 1000 Dh</p>
-                            </li>
-                            <li class="bg-gray-100 p-3 rounded">
-                                <p>Virement recu de Youcode d'un montant de 1000 Dh</p>
-                            </li>
-                            <li class="bg-gray-100 p-3 rounded">
-                                <p>Virement recu de Youcode d'un montant de 1000 Dh</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </header>
+			<main class="p-10 flex-1 overflow-auto">
+				<h1 class="text-4xl font-semibold mb-10 text-left">
+					Payer Une Facture
+				</h1>
 
-            <main class="p-10 flex-1 overflow-auto">
-                <h1 class="text-4xl font-semibold mb-10 text-left">Payer Une Facture</h1>
+				<section class="w-full max-w-3xl mx-auto">
+					<div class="flex flex-col gap-8">
+						<div class="flex flex-col gap-2">
+							<span class="font-medium ml-2">Compte source</span>
+							<div class="relative">
+								<span class="absolute right-6 top-4 pointer-events-none">
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black"
+										stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+										<polyline points="6 9 12 15 18 9"></polyline>
+									</svg>
+								</span>
+								<select id="select_which"
+									class="appearance-none w-full border border-gray-300 rounded-md p-3 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-950">
+									<option></option>
+									<option value="inwi">inwi</option>
+									<option value="orange">orange</option>
+									<option value="maroc-telecom">Maroc-Telecom</option>
+									<option value="electricity-water">
+										electricity & water
+									</option>
+									<option value="internet">internet</option>
+								</select>
+							</div>
+						</div>
 
-                <section class="w-full max-w-3xl mx-auto">
-                    <div class="flex flex-col gap-8">
+						<div class="flex flex-col gap-2 hidden" id="users_payment">
+							<span class="font-medium ml-2">Compte source</span>
+							<div class="grid grid-cols-3 gap-3 items-center">
+								<select id="user_inside"
+									class="col-span-2 appearance-none w-full border border-gray-300 rounded-md p-3 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-950">
+									<option></option>
+								</select>
+								<button id="openPopup"
+									class="px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700">
+									Add a User
+								</button>
+							</div>
+						</div>
 
-                        <!-- Compte source -->
-                        <div class="flex flex-col gap-2">
-                            <span class="font-medium ml-2">Compte source</span>
-                            <div class="relative">
-                                <span class="absolute right-6 top-4 pointer-events-none">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black"
-                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </span>
-                                <select id="select_which"
-                                    class="appearance-none w-full border border-gray-300 rounded-md p-3 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-950">
-                                    <option></option>
-                                    <option value="inwi">inwi</option>
-                                    <option value="orange">orange</option>
-                                    <option value="maroc-telecom">Maroc-Telecom</option>
-                                    <option value="electricity-water">electricity & water</option>
-                                    <option value="internet">internet</option>
-                                </select>
-                            </div>
-                        </div>
+						<div class="flex flex-col gap-2">
+							<span class="font-medium ml-2">Reference</span>
+							<input type="number" id="Reference"
+								class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-950" />
+						</div>
 
-                        <div class="flex flex-col gap-2 hidden" id="users_payment">
-                            <span class="font-medium ml-2">Compte source</span>
-                            <div class="grid grid-cols-3 gap-3 items-center">
-                                <select id="user_inside"
-                                    class="col-span-2 appearance-none w-full border border-gray-300 rounded-md p-3 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-950">
-                                    <option></option>
-                                </select>
-                                <button id="openPopup"
-                                    class="px-4 py-2 bg-blue-800 text-white rounded hover:bg-blue-700">
-                                    Add a User
-                                </button>
-                            </div>
-                        </div>
+						<span class="mt-2 ml-8">Plafond : 10 000 MAD/transaction</span>
 
+						<div class="flex justify-end">
+							<button id="validatePayment"
+								class="bg-[#13233A] text-white px-10 py-3 rounded-xl hover:bg-[#0c192e] transition">
+								Valider
+							</button>
+						</div>
+					</div>
+				</section>
+			</main>
 
-                        <div class="flex flex-col gap-2">
-                            <span class="font-medium ml-2">Reference</span>
-                            <input type="number" id="Reference"
-                                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-950" />
-                        </div>
+			<div id="popup_edit" class="hidden fixed inset-0 bg-black/60 flex items-start justify-center pt-20">
+				<div class="bg-white rounded-2xl w-[25em] shadow-xl p-6">
+					<div class="flex justify-between items-center mb-4">
+						<h1 class="font-bold text-xl text-black">Add a User</h1>
+						<span class="w-7 cursor-pointer font-bold text-md" id="exitPopup">x</span>
+					</div>
 
-                        <span class="mt-2 ml-8">Plafond : 10 000 MAD/transaction</span>
-                        
-                            <div class="flex justify-end ">
+					<div class="mb-6">
+						<label class="block mb-2 text-black font-semibold">Name</label>
+						<input type="text" id="newName"
+							class="text-black w-full border border-gray-400 p-2 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+					</div>
+					<div class="mb-4">
+						<label class="lock mb-2 text-black font-semibold"> number </label>
+						<input type="number" id="newNumber"
+							class="text-black w-full border border-gray-400 p-2 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500" />
+					</div>
 
+					<div class="text-center">
+						<button id="submitbtn_edit"
+							class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-500 active:bg-red-700 transition-all">
+							add
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                <button id="validatePayment"
-                                    class="bg-[#13233A] text-white px-10 py-3 rounded-xl hover:bg-[#0c192e] transition">
-                                    Valider
-                                </button>
-
-                            </div>
-                        
-
-                    </div>
-                </section>
-        </div>
-
-
-        </main>
-
-        <div id="popup_edit" class="hidden fixed inset-0 bg-black/60 flex items-start justify-center pt-20">
-            <div class="bg-white rounded-2xl w-[25em] shadow-xl p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h1 class="font-bold text-xl text-black">Add a User</h1>
-                    <span class="w-7 cursor-pointer font-bold text-md" id="exitPopup">x</span>
-                </div>
-
-                <div class="mb-6">
-                    <label class="block mb-2 text-black font-semibold">Name</label>
-                    <input type="text" id="newName"
-                        class="text-black w-full border border-gray-400 p-2 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                </div>
-                <div class="mb-4">
-                    <label class="lock mb-2 text-black font-semibold">
-                        number </label>
-                    <input type="number" id="newNumber"
-                        class="text-black w-full border border-gray-400 p-2 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500" />
-                </div>
-
-                <div class="text-center">
-                    <button id="submitbtn_edit"
-                        class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-500 active:bg-red-700 transition-all">
-                        add
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <script src="/js/home.js"></script>
-    <script src="/js/payment.js"></script>
-    <script type="module" src="/js/main.js"></script>
+	<script src="/js/home.js"></script>
+	<script src="/js/payment.js"></script>
+	<script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

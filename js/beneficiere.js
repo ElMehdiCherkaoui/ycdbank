@@ -1,20 +1,22 @@
 const listeBeneficier = document.getElementById('listeBeneficier');
 
 function afficherBeneficiaires() {
-    listeBeneficier.innerHTML = "";
-    listeBeneficier.className = 'divide-y divide-gray-100 text-gray-800';
+	listeBeneficier.innerHTML = "";
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+	listeBeneficier.className = 'divide-y divide-gray-100 text-gray-800';
 
-    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+	const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const currentUser = users.find((u) => u.transfer_1 === loggedUser.transfer_1);
+	const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
-    currentUser.RIBSVirement.forEach(d => {
-        const li = document.createElement("li");
-        li.className = 'flex flex-col md:flex-row md:justify-between md:items-center p-4 mb-3 rounded-lg shadow-lg bg-white border-0 gap-4';
+	const currentUser = users.find((u) => u.transfer_1 === loggedUser.transfer_1);
 
-        li.innerHTML = `
+	currentUser.RIBSVirement.forEach(d => {
+		const li = document.createElement("li");
+
+		li.className = 'flex flex-col md:flex-row md:justify-between md:items-center p-4 mb-3 rounded-lg shadow-lg bg-white border-0 gap-4';
+
+		li.innerHTML = `
             <div class="flex-1 flex flex-col sm:flex-row sm:gap-6">
                 <div class="flex-1">
                     <span class="font-bold sm:hidden">Nom: </span>
@@ -51,87 +53,83 @@ function afficherBeneficiaires() {
             </div>
         `;
 
-        listeBeneficier.appendChild(li);
-    });
+		listeBeneficier.appendChild(li);
+	});
 }
 
 function supprimer(nom) {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+	const users = JSON.parse(localStorage.getItem("users")) || [];
 
+	const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
-    const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
-    if (!currentUser) return;
+	const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
 
+	if (!currentUser) return;
 
-    currentUser.RIBSVirement = currentUser.RIBSVirement.filter(b => b.fullNameVirementSecond !== nom);
+	currentUser.RIBSVirement = currentUser.RIBSVirement.filter(b => b.fullNameVirementSecond !== nom);
 
+	loggedUser.RIBSVirement = currentUser.RIBSVirement;
 
-    loggedUser.RIBSVirement = currentUser.RIBSVirement;
+	localStorage.setItem("users", JSON.stringify(users));
 
+	localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
 
-    localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
-
-
-    afficherBeneficiaires();
+	afficherBeneficiaires();
 }
-
-
 
 let nomActuel = "";
 
 function ouvrirModalModifier(nom) {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+	const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
-    if (!currentUser) return;
+	const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
-    const user = currentUser.RIBSVirement.find(b => b.fullNameVirementSecond === nom);
-    if (!user) return;
+	const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
 
-    // memorize the old name
-    nomActuel = nom;
+	if (!currentUser) return;
 
-    // fill the modal inputs
-    document.getElementById("editNom").value = user.fullNameVirementSecond;
-    document.getElementById("editRib").value = user.userEnterRibVirementSecond;
+	const user = currentUser.RIBSVirement.find(b => b.fullNameVirementSecond === nom);
+
+	if (!user) return;
+
+	nomActuel = nom;
+
+	document.getElementById("editNom").value = user.fullNameVirementSecond;
+
+	document.getElementById("editRib").value = user.userEnterRibVirementSecond;
 }
 
 function confirmerModification() {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+	const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
-    if (!currentUser) return;
+	const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
-    const newNom = document.getElementById("editNom").value.trim();
-    const newRib = document.getElementById("editRib").value.trim();
+	const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
 
-    // Update only the beneficiary with the old name
-    currentUser.RIBSVirement = currentUser.RIBSVirement.map(b => {
-        if (b.fullNameVirementSecond === nomActuel) {
-            return {
-                ...b,
-                fullNameVirementSecond: newNom,
-                userEnterRibVirementSecond: newRib
-            };
-        }
-        return b;
-    });
+	if (!currentUser) return;
 
-    // update loggedUser too
-    loggedUser.RIBSVirement = currentUser.RIBSVirement;
+	const newNom = document.getElementById("editNom").value.trim();
 
-    // Save changes
-    localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+	const newRib = document.getElementById("editRib").value.trim();
 
-    // Refresh UI
-    afficherBeneficiaires();
+	currentUser.RIBSVirement = currentUser.RIBSVirement.map(b => {
+		if (b.fullNameVirementSecond === nomActuel) {
+			return {
+				...b,
+				fullNameVirementSecond: newNom,
+				userEnterRibVirementSecond: newRib
+			};
+		}
+		return b;
+	});
+
+	loggedUser.RIBSVirement = currentUser.RIBSVirement;
+
+	localStorage.setItem("users", JSON.stringify(users));
+
+	localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+
+	afficherBeneficiaires();
 }
-
-
 
 afficherBeneficiaires();

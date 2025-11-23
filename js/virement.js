@@ -1,4 +1,3 @@
-
 const beneficiarySelect = document.getElementById("beneficiarySelect");
 
 const newBenefBtn = document.getElementById("newBenefBtn");
@@ -209,10 +208,6 @@ validerBtnVerment.addEventListener("click", (e) => {
 		date: dateVirement.value,
 		description: montifReferenceVirement.value,
 	};
-
-
-
-
 
 	if (!currentUser) return;
 

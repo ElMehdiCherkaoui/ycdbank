@@ -152,16 +152,12 @@
 			</header>
 
 			<main class="p-6 flex-1 overflow-y-auto">
-
 				<div class="relative w-full overflow-hidden" role="region" aria-label="Liste des cartes bancaires">
-					<!-- Slider container -->
 					<div id="cardSlider"
 						class="flex gap-10 w-full overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide touch-pan-x md:justify-center py-4 focus:outline-none"
 						tabindex="0" aria-live="polite">
-						<!-- CARD 1 -->
 						<div class="min-w-[90vw] sm:min-w-[420px] md:min-w-[480px] lg:min-w-[500px] flex-shrink-0 snap-center grid gap-6 px-2 sm:px-4 py-2 md:py-0 transition-transform duration-500 focus-visible:ring-4 focus-visible:ring-blue-500 rounded-2xl"
 							role="group" aria-label="Carte Compte Chèque">
-							<!-- Carte principale -->
 							<div
 								class="h-[220px] bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-xl text-white p-5 relative overflow-hidden flex flex-col justify-between">
 								<div class="flex justify-between items-start">
@@ -179,12 +175,12 @@
 										<p class="text-sm font-light">Expire fin</p>
 										<p class="text-sm tracking-wide">03/27</p>
 									</div>
-									<p class="text-sm tracking-wide">Mr : <span id="nomCartes1">Lahmar Zakariae</span>
+									<p class="text-sm tracking-wide">
+										Mr : <span id="nomCartes1">Lahmar Zakariae</span>
 									</p>
 								</div>
 							</div>
 
-							<!-- Détails + actions -->
 							<div
 								class="grid justify-center items-center p-4 md:p-6 gap-4 border border-gray-300 rounded-xl bg-white">
 								<div class="flex flex-wrap gap-2 text-gray-900 justify-between">
@@ -194,7 +190,9 @@
 
 								<div class="flex flex-wrap gap-2 text-gray-900 justify-between">
 									<p>Statut de carte :</p>
-									<p><span class="font-medium text-green-600" id="statutCheque"></span></p>
+									<p>
+										<span class="font-medium text-green-600" id="statutCheque"></span>
+									</p>
 								</div>
 
 								<div class="grid grid-cols-2 gap-3 sm:gap-4 mt-3">
@@ -221,7 +219,6 @@
 							</div>
 						</div>
 
-						<!-- CARD 2 -->
 						<div class="min-w-[90vw] sm:min-w-[420px] md:min-w-[480px] lg:min-w-[500px] flex-shrink-0 snap-center grid gap-6 px-2 sm:px-4 py-2 md:py-0 transition-transform duration-500 focus-visible:ring-4 focus-visible:ring-blue-500 rounded-2xl"
 							role="group" aria-label="Carte Compte sur Carnet">
 							<div
@@ -241,7 +238,8 @@
 										<p class="text-sm font-light">Expire fin</p>
 										<p class="text-sm tracking-wide">03/27</p>
 									</div>
-									<p class="text-sm tracking-wide">Mr : <span id="nomCartes2">Lahmar Zakariae</span>
+									<p class="text-sm tracking-wide">
+										Mr : <span id="nomCartes2">Lahmar Zakariae</span>
 									</p>
 								</div>
 							</div>
@@ -255,7 +253,9 @@
 
 								<div class="flex flex-wrap gap-2 text-gray-900 justify-between">
 									<p>Statut de carte :</p>
-									<p><span class="font-medium text-green-600" id="statutCarnet"></span></p>
+									<p>
+										<span class="font-medium text-green-600" id="statutCarnet"></span>
+									</p>
 								</div>
 
 								<div class="grid grid-cols-2 gap-3 sm:gap-4 mt-3">
@@ -284,7 +284,6 @@
 					</div>
 				</div>
 
-				<!--modal information1-->
 				<div id="default-modal1" tabindex="-1" aria-hidden="true"
 					class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/20">
 					<div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -303,7 +302,7 @@
 									<span class="sr-only">Close modal</span>
 								</button>
 							</div>
-							<!-- Modal body -->
+
 							<div class="p-4 md:p-5 space-y-4">
 								<div class="relative overflow-x-auto">
 									<table
@@ -352,7 +351,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- modal information2-->
+
 				<div id="default-modal" tabindex="-1" aria-hidden="true"
 					class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/20">
 					<div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -371,7 +370,7 @@
 									<span class="sr-only">Close modal</span>
 								</button>
 							</div>
-							<!-- Modal body -->
+
 							<div class="p-4 md:p-5 space-y-4">
 								<div class="relative overflow-x-auto">
 									<table
@@ -420,7 +419,7 @@
 						</div>
 					</div>
 				</div>
-				<!--modal dotation-->
+
 				<div id="default-modal-dotation" tabindex="-1" aria-hidden="true"
 					class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/20">
 					<div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -439,7 +438,7 @@
 									<span class="sr-only">Close modal</span>
 								</button>
 							</div>
-							<!-- Modal body -->
+
 							<div class="flex flex-col md:p-5 space-y-6 justify-center items-center">
 								<div>
 									<h3>Le solde disponible est 100000,00 DH</h3>
@@ -459,7 +458,6 @@
 					</div>
 				</div>
 
-				<!--modal dotation2-->
 				<div id="default-modal-dotation2" tabindex="-1" aria-hidden="true"
 					class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/20">
 					<div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -478,7 +476,7 @@
 									<span class="sr-only">Close modal</span>
 								</button>
 							</div>
-							<!-- Modal body -->
+
 							<div class="flex flex-col md:p-5 space-y-6 justify-center items-center">
 								<div>
 									<h3>Le solde disponible est 100000,00 DH</h3>
@@ -498,7 +496,6 @@
 					</div>
 				</div>
 
-				<!--modal bloquer-->
 				<div id="default-modal-bloque" tabindex="-1" aria-hidden="true"
 					class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/20">
 					<div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -517,7 +514,7 @@
 									<span class="sr-only">Close modal</span>
 								</button>
 							</div>
-							<!-- Modal body -->
+
 							<div class="flex md:p-5 gap-3 justify-center items-center">
 								<button id="bloquerCarteCheque" type="button"
 									class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md focus:outline-none transition duration-200 ease-in-out">
@@ -531,7 +528,7 @@
 						</div>
 					</div>
 				</div>
-				<!--modal bloquer2-->
+
 				<div id="default-modal-bloque2" tabindex="-1" aria-hidden="true"
 					class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/20">
 					<div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -550,7 +547,7 @@
 									<span class="sr-only">Close modal</span>
 								</button>
 							</div>
-							<!-- Modal body -->
+
 							<div class="flex gap-3 md:p-5 justify-center items-center">
 								<button id="bloquerCarteCarnet" type="button"
 									class="w-full sm:w-auto text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-6 py-2.5 shadow-md focus:outline-none transition duration-200 ease-in-out">
@@ -565,7 +562,6 @@
 					</div>
 				</div>
 
-				<!--modal Code carte cheque-->
 				<div id="default-modal-code" tabindex="-1" aria-hidden="true"
 					class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/20">
 					<div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -584,7 +580,7 @@
 									<span class="sr-only">Close modal</span>
 								</button>
 							</div>
-							<!-- Modal body -->
+
 							<div class="flex flex-col md:p-5 space-y-6 justify-center items-center">
 								<div class="w-full sm:w-auto text-black">
 									<p>
@@ -602,7 +598,6 @@
 					</div>
 				</div>
 
-				<!--modal Code carte carnet-->
 				<div id="default-modal-code2" tabindex="-1" aria-hidden="true"
 					class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/20">
 					<div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -621,7 +616,7 @@
 									<span class="sr-only">Close modal</span>
 								</button>
 							</div>
-							<!-- Modal body -->
+
 							<div class="flex flex-col md:p-5 space-y-6 justify-center items-center">
 								<div class="w-full sm:w-auto text-black">
 									<p>

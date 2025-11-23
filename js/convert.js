@@ -1,28 +1,35 @@
-const API_URL = "https://v6.exchangerate-api.com/v6/a52906b05cf0547eb05bfe81/latest/USD";
+const API_URL =
+	"https://v6.exchangerate-api.com/v6/a52906b05cf0547eb05bfe81/latest/USD";
 
 document.getElementById("convertBtn").addEventListener("click", async () => {
-    const amount = parseFloat(document.getElementById("amount").value);
-    const toCurrency = document.getElementById("currency").value;
-    const resultInput = document.getElementById("result");
+	const amount = parseFloat(document.getElementById("amount").value);
 
-    if (isNaN(amount) || amount <= 0) {
-        resultInput.value = "⚠️ Montant invalide";
-        return;
-    }
+	const toCurrency = document.getElementById("currency").value;
 
-    try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
+	const resultInput = document.getElementById("result");
 
-        // Convert MAD -> USD -> target
-        const rateUSDToMAD = 1 / data.conversion_rates.MAD;
-        const rateUSDToTarget = data.conversion_rates[toCurrency];
-        const rateMADToTarget = rateUSDToTarget * rateUSDToMAD;
+	if (isNaN(amount) || amount <= 0) {
+		resultInput.value = "⚠️ Montant invalide";
+		return;
+	}
 
-        const converted = (amount * rateMADToTarget).toFixed(2);
-        resultInput.value = `${converted} ${toCurrency}`;
-    } catch (error) {
-        resultInput.value = "Erreur de conversion";
-        console.error("Erreur API :", error);
-    }
+	try {
+		const response = await fetch(API_URL);
+
+		const data = await response.json();
+
+		const rateUSDToMAD = 1 / data.conversion_rates.MAD;
+
+		const rateUSDToTarget = data.conversion_rates[toCurrency];
+
+		const rateMADToTarget = rateUSDToTarget * rateUSDToMAD;
+
+		const converted = (amount * rateMADToTarget).toFixed(2);
+
+		resultInput.value = `${converted} ${toCurrency}`;
+	} catch (error) {
+		resultInput.value = "Erreur de conversion";
+
+		console.error("Erreur API :", error);
+	}
 });
