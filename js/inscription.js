@@ -100,7 +100,9 @@ document.getElementById("confirm-btn").addEventListener("click", function () {
         adress,
         motdepasse,
         solde1: 10000,
-        solde2: 10000
+        solde2: 10000,
+        userPayment: [],
+        infosAboutPayments: [],
     };
 
 

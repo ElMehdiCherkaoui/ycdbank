@@ -134,20 +134,41 @@ function extraireNumeroCompte(rib) {
 }
 
 
+
+
 function checkForNewOperations() {
-    const InfosPayments = JSON.parse(localStorage.getItem("Infos")) || [];
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    
+ 
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+    if (!loggedUser.transfer_1) return; 
 
 
-    InfosPayments.forEach(e => {
+    const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
+    if (!currentUser) return;
+
+
+    listeOperation.innerHTML = "";
+
+
+    currentUser.infosAboutPayments.forEach(payment => {
         const li = document.createElement("li");
         li.className = "flex justify-between w-full border border-black rounded-xl p-3 items-center flex-wrap";
+
+
         li.innerHTML = `
-            <p>${e.select_value}</p>
-            <p class="text-red-600">-${e.Reference_value}</p>
-            <p class="font-bold">-${e.userInside}</p>
+            <p>${payment.select_value || "No Value"}</p>
+            <p class="text-red-600">-${payment.Reference_value || "No Reference"}</p>
+            <p class="font-bold">-${payment.userInside || "Unknown User"}</p>
         `;
+
         listeOperation.appendChild(li);
     });
 }
 
-checkForNewOperations();
+// 6️⃣ Call this function on page load
+window.addEventListener("DOMContentLoaded", checkForNewOperations);
+
+
+
