@@ -103,6 +103,8 @@ document.getElementById("confirm-btn").addEventListener("click", function () {
         solde2: 10000,
         userPayment: [],
         infosAboutPayments: [],
+        transactionsVirement: [],
+        RIBSVirement: [],
     };
 
 

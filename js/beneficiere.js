@@ -4,9 +4,13 @@ function afficherBeneficiaires() {
     listeBeneficier.innerHTML = "";
     listeBeneficier.className = 'divide-y divide-gray-100 text-gray-800';
 
-    const saved = JSON.parse(localStorage.getItem("RIBSVirement")) || [];
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    saved.forEach(d => {
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+
+    const currentUser = users.find((u) => u.transfer_1 === loggedUser.transfer_1);
+
+    currentUser.RIBSVirement.forEach(d => {
         const li = document.createElement("li");
         li.className = 'flex flex-col md:flex-row md:justify-between md:items-center p-4 mb-3 rounded-lg shadow-lg bg-white border-0 gap-4';
 
@@ -52,39 +56,61 @@ function afficherBeneficiaires() {
 }
 
 function supprimer(nom) {
-    let bene = JSON.parse(localStorage.getItem("RIBSVirement")) || [];
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
-    let nouveau = bene.filter(b => b.fullNameVirementSecond !== nom);
 
-    localStorage.setItem("RIBSVirement", JSON.stringify(nouveau));
+    const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
+    if (!currentUser) return;
+
+
+    currentUser.RIBSVirement = currentUser.RIBSVirement.filter(b => b.fullNameVirementSecond !== nom);
+
+
+    loggedUser.RIBSVirement = currentUser.RIBSVirement;
+
+
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+
 
     afficherBeneficiaires();
 }
 
-let nomActuel = ""; 
+
+
+let nomActuel = "";
 
 function ouvrirModalModifier(nom) {
-    const data = JSON.parse(localStorage.getItem("RIBSVirement")) || [];
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
-    const user = data.find(b => b.fullNameVirementSecond === nom);
+    const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
+    if (!currentUser) return;
 
+    const user = currentUser.RIBSVirement.find(b => b.fullNameVirementSecond === nom);
     if (!user) return;
 
-    nomActuel = nom; // mémorise l'ancien nom
+    // memorize the old name
+    nomActuel = nom;
 
-    // remplit les inputs du modal
+    // fill the modal inputs
     document.getElementById("editNom").value = user.fullNameVirementSecond;
     document.getElementById("editRib").value = user.userEnterRibVirementSecond;
 }
 
 function confirmerModification() {
-    let data = JSON.parse(localStorage.getItem("RIBSVirement")) || [];
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+
+    const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
+    if (!currentUser) return;
 
     const newNom = document.getElementById("editNom").value.trim();
     const newRib = document.getElementById("editRib").value.trim();
 
-    // mise à jour de l'objet
-    data = data.map(b => {
+    // Update only the beneficiary with the old name
+    currentUser.RIBSVirement = currentUser.RIBSVirement.map(b => {
         if (b.fullNameVirementSecond === nomActuel) {
             return {
                 ...b,
@@ -95,9 +121,17 @@ function confirmerModification() {
         return b;
     });
 
-    localStorage.setItem("RIBSVirement", JSON.stringify(data));
+    // update loggedUser too
+    loggedUser.RIBSVirement = currentUser.RIBSVirement;
 
+    // Save changes
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+
+    // Refresh UI
     afficherBeneficiaires();
 }
+
+
 
 afficherBeneficiaires();

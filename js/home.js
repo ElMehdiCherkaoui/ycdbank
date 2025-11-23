@@ -43,12 +43,19 @@ function RIBCarnet() {
 }
 
 const listeOperation = document.getElementById("listeOperation");
-const transactions = JSON.parse(localStorage.getItem("transaction")) || [];
+
+
 
 function afficherTransactions() {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+
+    const currentUser = users.find((u) => u.transfer_1 === loggedUser.transfer_1);
+    
     listeOperation.innerHTML = "";
 
-    transactions.forEach(v => {
+    currentUser.transactionsVirement.forEach(v => {
         let isInternal =
             (v.from === "Compte 1" && v.to === "Compte 2") ||
             (v.from === "Compte 2" && v.to === "Compte 1");
@@ -86,12 +93,17 @@ function afficherTransactions() {
 }
 
 const listeOperation2 = document.getElementById("listeOperation2");
-const transactions2 = JSON.parse(localStorage.getItem("transaction")) || [];
 
 function afficherTransactionsInternes() {
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+
+    const currentUser = users.find((u) => u.transfer_1 === loggedUser.transfer_1);
+
     listeOperation2.innerHTML = ""; // reset
 
-    transactions2.forEach(v => {
+    currentUser.transactionsVirement.forEach(v => {
         // Filtrer uniquement les transactions internes
         const isInternal =
             (v.from === "Compte 1" && v.to === "Compte 2") ||
@@ -139,17 +151,17 @@ function extraireNumeroCompte(rib) {
 function checkForNewOperations() {
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    
- 
+
+
     const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
-    if (!loggedUser.transfer_1) return; 
+    if (!loggedUser.transfer_1) return;
 
 
     const currentUser = users.find(u => u.transfer_1 === loggedUser.transfer_1);
     if (!currentUser) return;
 
 
-    listeOperation.innerHTML = "";
+
 
 
     currentUser.infosAboutPayments.forEach(payment => {
