@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<title>Inscription</title>
 </head>
@@ -19,21 +20,21 @@
 
 				<form class="space-y-4">
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-						<input required type="text" name="prenom" placeholder="Votre prénom" id="prenom"
+						<input  type="text" name="prenom" placeholder="Votre prénom" id="prenom"
 							class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
-						<input required type="text" name="nom" placeholder="Votre nom" id="nom"
+						<input  type="text" name="nom" placeholder="Votre nom" id="nom"
 							class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
 					</div>
 
 					<div>
-						<input required type="email" name="email" placeholder="exemple@domaine.com" id="email"
+						<input  type="email" name="email" placeholder="exemple@domaine.com" id="email"
 							class="w-full text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
 					</div>
 
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-						<input required type="tel" name="telephone" placeholder="+212 6 12 34 56 78" id="number"
+						<input  type="tel" name="telephone" placeholder="+212 6 12 34 56 78" id="number"
 							class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
-						<input required type="date" name="naissance" id="naissance"
+						<input  type="date" name="naissance" id="naissance"
 							class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
 					</div>
 
@@ -43,10 +44,10 @@
 					</div>
 
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-						<input required type="password" name="password" placeholder="Choisissez un mot de passe"
+						<input  type="password" name="password" placeholder="Choisissez un mot de passe"
 							id="motdepasse"
 							class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
-						<input required type="password" name="password_confirm" placeholder="Répétez le mot de passe"
+						<input  type="password" name="password_confirm" placeholder="Répétez le mot de passe"
 							id="confirm-motdepasse"
 							class="text-sm bg-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#E6E9EF]" />
 					</div>

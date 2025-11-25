@@ -77,11 +77,17 @@ submitBtnVirement.addEventListener("click", () => {
 });
 
 comptesVirement.addEventListener("change", () => {
+	const users = JSON.parse(localStorage.getItem("users")) || [];
+
+	const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
+	const currentUser = users.find((u) => u.transfer_1 === loggedUser.transfer_1);
+
 	const selected = comptesVirement.value;
 
 	beneficiarySelect.innerHTML = "";
 
-	if (selected === "Compte 2") {
+
+	if (selected === "Compte 2" && currentUser.statusChèque === "Active") {
 		const opt = document.createElement("option");
 
 		opt.value = "Compte 1";
@@ -89,7 +95,8 @@ comptesVirement.addEventListener("change", () => {
 		opt.textContent = "Compte 1";
 
 		beneficiarySelect.appendChild(opt);
-	} else if (selected === "Compte 1") {
+	}
+	else if (selected === "Compte 1" && currentUser.statusCarnet === "Active") {
 		const optC2 = document.createElement("option");
 
 		optC2.value = "Compte 2";
@@ -98,9 +105,7 @@ comptesVirement.addEventListener("change", () => {
 
 		beneficiarySelect.appendChild(optC2);
 
-		const users = JSON.parse(localStorage.getItem("users")) || [];
 
-		const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || {};
 
 		const currentUser = users.find(
 			(u) => u.transfer_1 === loggedUser.transfer_1
@@ -119,7 +124,12 @@ comptesVirement.addEventListener("change", () => {
 
 			beneficiarySelect.appendChild(option);
 		});
-	} else {
+	} else if (currentUser.statusCarnet !== "Active" || currentUser.statusChèque !== "Active" && selected === "Compte 1" || selected === "Compte 2") {
+		alert("cant");
+		comptesVirement.value = "Choisir le compte";
+		return;
+	}
+	else {
 		beneficiarySelect.innerHTML = `<option value="">Sélectionner un bénéficiaire</option>`;
 	}
 });

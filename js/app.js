@@ -1,32 +1,42 @@
 const LoginSubmit = document.getElementById("LoginSubmit");
 
-LoginSubmit.addEventListener("click", () => {
-	const UserId = document.getElementById("UserId").value.trim();
+LoginSubmit.addEventListener("click", (event) => {
+	event.preventDefault(); 
 
+	const UserId = document.getElementById("UserId").value.trim();
 	const passwordLogin = document.getElementById("passwordLogin").value.trim();
 
 	const users = JSON.parse(localStorage.getItem("users")) || [];
 
 	for (let i = 0; i < users.length; i++) {
-		console.log("Checking:", users[i]);
-
 		if (users[i].transfer_1 == UserId) {
+
 			if (users[i].motdepasse !== passwordLogin) {
-				alert("Password invalid");
+				Swal.fire({
+					title: "Password invalid",
+					icon: "error",
+				});
+
 				return;
 			}
 
-			console.log("Login OK");
+			Swal.fire({
+				title: "hello " + users[i].nom,
+				icon: "success",
+				confirmButtonText: "OK"
+			}).then(() => {
+				localStorage.setItem("loggedUser", JSON.stringify(users[i]));
+				window.location.href = "/pages/home.html";;
+			});
 
-			window.location.href = "/pages/home.html";
-
-			alert("hello " + users[i].nom);
-
-			localStorage.setItem("loggedUser", JSON.stringify(users[i]));
 
 			return;
 		}
 	}
 
-	alert("User not found");
+	Swal.fire({
+		title: "User not found!",
+		icon: "error",
+		draggable: true
+	});
 });

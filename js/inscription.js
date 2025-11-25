@@ -47,57 +47,63 @@ function validatePasswordLength(password) {
 	return password.length >= 8;
 }
 
-document.getElementById("confirm-btn").addEventListener("click", function () {
+document.getElementById("confirm-btn").addEventListener("click", function (e) {
+	e.preventDefault();
 	const prenom = document.getElementById("prenom").value.trim();
-
 	const nom = document.getElementById("nom").value.trim();
-
 	const email = document.getElementById("email").value.trim();
-
 	const number = document.getElementById("number").value.trim();
-
 	const naissance = document.getElementById("naissance").value;
-
 	const adress = document.getElementById("adress").value.trim();
-
 	const motdepasse = document.getElementById("motdepasse").value;
-
 	const confirm_motdepasse = document.getElementById("confirm-motdepasse").value;
-
 	const accept = document.getElementById("terms").checked;
 
 	if (!accept) {
-		alert("You must accept the conditions to continue.");
-
+		Swal.fire({
+			title: "Terms Required",
+			text: "You must accept the terms to continue.",
+			icon: "warning"
+		});
 		return;
 	}
 
-	if (!prenom.trim() || !nom.trim() || !email.trim() || !number.trim() || !naissance || !adress.trim() || !motdepasse.trim()) {
-		alert("Please fill all required fields.");
-
+	if (!prenom || !nom || !email || !number || !naissance || !adress || !motdepasse) {
+		Swal.fire({
+			title: "Missing Fields",
+			text: "Please fill all required fields.",
+			icon: "error"
+		});
 		return;
 	}
 
 	if (motdepasse !== confirm_motdepasse) {
-		alert("Passwords do not match.");
-
+		Swal.fire({
+			title: "Password Error",
+			text: "Passwords do not match.",
+			icon: "error"
+		});
 		return;
 	}
-	if (!validatePasswordLength(motdepasse)) {
-		alert("password has less then 8 characters");
 
+	if (!validatePasswordLength(motdepasse)) {
+		Swal.fire({
+			title: "Weak Password",
+			text: "Password must be at least 8 characters.",
+			icon: "error"
+		});
 		return;
 	}
 
 	let users = JSON.parse(localStorage.getItem("users")) || [];
 
-	console.log(users);
-
 	const emailExists = users.some(user => user.email.toLowerCase() === email.toLowerCase());
-
 	if (emailExists) {
-		alert("This email is already registered!");
-
+		Swal.fire({
+			title: "Email Exists",
+			text: "This email is already registered.",
+			icon: "error"
+		});
 		return;
 	}
 
@@ -126,12 +132,21 @@ document.getElementById("confirm-btn").addEventListener("click", function () {
 	};
 
 	users.push(user);
-
 	localStorage.setItem("users", JSON.stringify(users));
 
-	window.location.href = "/index.html";
-
-	alert("Inscription saved! we will send you ur transaction in sms ");
-
-	alert("from ycdbank : \n you transaction is : " + idData.transfer);
-})
+	Swal.fire({
+		title: "Success!",
+		text: "Your account was created successfully.",
+		icon: "success",
+		confirmButtonText: "Continue"
+	}).then(() => {
+		Swal.fire({
+			title: "YCDBank",
+			text: "Your transaction code is: " + idData.transfer,
+			icon: "info",
+			confirmButtonText: "OK"
+		}).then(() => {
+			window.location.href = "/index.html";
+		});
+	});
+});
